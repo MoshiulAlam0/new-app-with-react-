@@ -3,8 +3,11 @@ import NewsItem from "../Components/NewsItem";
 import ChangeBtn from "./ChangeBtn";
 import PropTypes from "prop-types";
 
-const NewsCon = ({ keyCode }) => {
-    const [isCalled, setisCalled] = useState(true);
+const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
+  const [prevBtnDnone, setprevBtnDnone] = useState(true);
+  const [nextBtnDnone, setnextBtnDnone] = useState(true);
+  const [isCalled, setisCalled] = useState(true);
+  const [page, setpage] = useState(1);
   /**store data on the state : */
   const [data, setdata] = useState({
     status: "ok",
@@ -76,54 +79,97 @@ const NewsCon = ({ keyCode }) => {
       },
     ],
   });
-//   const [data, setdata] = useState({
-//     status: "ok",
-//     totalResults: 59,
-//     articles: [],
-//   });
+  //   const [data, setdata] = useState({
+  //     status: "ok",
+  //     totalResults: 59,
+  //     articles: [],
+  //   });
 
   /**for api data function " ===>*/
   async function dataLoad() {
-    let url =
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a7eefe62fac34b09b7684219260fccd2";
+    let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
     // let res = await fetch(url)
     // let data = await res.json()
     // setdata(data);
+    // console.log(url)
+    if(pageSize === data.articles.length){
+        setnextBtnDnone(false)
+    }
+    if(page > 1){
+        setprevBtnDnone(false)
+    }
   }
   useEffect(() => {
-    if(isCalled){
-        setisCalled(false)
-        dataLoad();
+    if (isCalled) {
+      setisCalled(false);
+      dataLoad();
     }
   });
+
+  /**
+change page function 
+*/
+  const changeNext = () => {
+    setpage(page + 1);
+    dataLoad();
+  };
+  const changePrev = () => {
+    setpage(page - 1);
+    dataLoad();
+  };
+
   return (
     <div className="w-full mt-[65px] px-[6vmin]">
-      <h1  className="text-center py-4 text-[2rem] capitalize font-extralight">
+      <h1 className="text-center py-4 text-[2rem] capitalize font-extralight">
         Top head line about the buisness
       </h1>
       <div className="main flex flex-wrap gap-[2vmin] items-center justify-center">
-        {data.status=== 'ok' ?
-        data.articles.length > 0 ? 
-        data.articles.map((e,i)=>{
-            return <NewsItem id={i} titel={e.title} link={e.url} imgUrl={e.urlToImage} source={e.source.name} author={e.author} date={e.publishedAt}/>
-        })
-        :
-        <h1>there are no news</h1>
-        :
-        <h1>No SIgnal</h1>
-        }
-
+        {data.status === "ok" ? (
+          data.articles.length > 0 ? (
+            data.articles.map((e, i) => {
+              return (
+                <NewsItem
+                  id={i}
+                  titel={e.title}
+                  link={e.url}
+                  imgUrl={e.urlToImage}
+                  source={e.source.name}
+                  author={e.author}
+                  date={e.publishedAt}
+                />
+              );
+            })
+          ) : (
+            <h1>there are no news</h1>
+          )
+        ) : (
+          <h1>No SIgnal</h1>
+        )}
       </div>
       <div className="page-change-btn w-[60%] flex items-center justify-between m-auto py-4">
-        <ChangeBtn text={"⇠ prev"} d_none={false} />
-        <ChangeBtn text={"next ⇢"} d_none={false} marginLorR={"ml-auto"} />
+        <ChangeBtn func={changePrev} text={"⇠ prev"} d_none={prevBtnDnone} />
+        <ChangeBtn
+          func={changeNext}
+          text={"next ⇢"}
+          d_none={nextBtnDnone}
+          marginLorR={"ml-auto"}
+        />
       </div>
     </div>
   );
 };
 
-NewsCon.propTypes = {};
+NewsCon.propTypes = {
+  all: PropTypes.string,
+  country: PropTypes.string,
+  category: PropTypes.string,
+  pageSize: PropTypes.string,
+};
 NewsCon.defaultProps = {
   keyCode: "a7eefe62fac34b09b7684219260fccd2",
+  all: "top-headlines",
+  country: "us",
+  category: "business",
+  pageSize: 10,
 };
 export default NewsCon;
