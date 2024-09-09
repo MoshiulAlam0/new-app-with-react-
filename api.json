@@ -1,0 +1,266 @@
+{
+  "status": "ok",
+  "totalResults": 59,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "Investor's Business Daily"
+      },
+      "author": "Investor's Business Daily",
+      "title": "Palantir, Dell Will Finally Join The S&P 500. The Stocks Are Jumping. - Investor's Business Daily",
+      "description": null,
+      "url": "https://www.investors.com/news/palantir-dell-join-sp-500-ai-stocks-jumping/",
+      "urlToImage": null,
+      "publishedAt": "2024-09-07T00:07:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "New York Post"
+      },
+      "author": "Reuters",
+      "title": "Struggling Big Lots preparing bankruptcy filing, will sell stores: report - New York Post ",
+      "description": "Big Lots, a retailer operating around 1,400 stores and employing over 30,000 workers, has been grappling with declining sales over the past few quarters, putting pressure on its balance sheet.",
+      "url": "https://nypost.com/2024/09/06/business/struggling-big-lots-preparing-bankruptcy-filing-will-sell-stores-report/",
+      "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/09/big-lots-bankruptcy.jpg?quality=75&strip=all&1725647432&w=1024",
+      "publishedAt": "2024-09-06T23:55:00Z",
+      "content": "Discount home goods retailer Big Lots is preparing to file for bankruptcy as early as this Sunday and plans to sell its chain of stores through a court-supervised process, Bloomberg News reported Fri… [+1448 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": "Chibuike Oguh",
+      "title": "Wall Street stocks fall, big weekly drop as market waits for Fed to move - Reuters",
+      "description": "U.S. stocks fell on Friday, weighed down by a jobs report that showed a continued labor market slowdown but left traders uncertain about how far the Federal Reserve will go in cutting interest rates.",
+      "url": "https://www.reuters.com/markets/us/futures-drop-investors-brace-payrolls-data-2024-09-06/",
+      "urlToImage": "https://www.reuters.com/resizer/v2/LZMI7LHUJNMQDOJEUKNUTR7EQA.jpg?auth=477e1934d1b787977573ceb42df149c5d25d07dd6b39858029f41daa31ce0d65&height=1005&width=1920&quality=80&smart=true",
+      "publishedAt": "2024-09-06T22:50:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Rick Newman",
+      "title": "How steelworkers are gambling on politics to block — or improve — the Nippon-US Steel deal - Yahoo Finance",
+      "description": "The union members opposed to Nippon's purchase of US Steel have political leverage at the moment. That will change after the election.",
+      "url": "https://finance.yahoo.com/news/how-steelworkers-are-gambling-on-politics-to-block--or-improve--the-nippon-us-steel-deal-175646876.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/QB5bvtMBwyB_LFkmu9oT3A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-09/11ffc410-6c76-11ef-83fa-9faed1828694",
+      "publishedAt": "2024-09-06T22:25:37Z",
+      "content": "It seems self-defeating. Unionized steelworkers are effectively blocking the purchase of US Steel by Japans Nippon Steel, leaving a shrunken icon of the American heartland with no good options. US St… [+6210 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes"
+      },
+      "author": "Billy Bambrough",
+      "title": "‘Extreme Fear’ And Fed Panic Sparks Sudden $2 Trillion Crypto Price Crash—Hitting Bitcoin, Ethereum, BNB, Solana, XRP And Dogecoin - Forbes",
+      "description": "The bitcoin price has dropped below a key resistance level as the crypto market crashes under $2 trillion...",
+      "url": "https://www.forbes.com/sites/digital-assets/2024/09/06/extreme-fear-and-fed-panic-and-spark-sudden-2-trillion-crypto-price-crash-hitting-bitcoin-ethereum-bnb-solana-xrp-and-dogecoin/",
+      "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6456424532c7f204c1e31892/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+      "publishedAt": "2024-09-06T21:45:13Z",
+      "content": "BitcoinBitcoin\r\n and cryptoincluding top ten coins ethereum, BNBBNB\r\n, solana, XRPXRP\r\n and dogecoinhave crashed after a serious Goldman Sachs warning.\r\nSubscribe now to Forbes' CryptoAsset &amp; Blo… [+3640 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Variety"
+      },
+      "author": "Todd Spangler",
+      "title": "Amid Disney Blackout, DirecTV Is Offering Customers a $30 Credit Toward Dish’s Sling or Fubo Streaming Services - Variety",
+      "description": "DirecTV, amid a carriage fight with Disney, is offering customers a $30 credit toward two competing streaming TV services -- Dish's Sling and Fubo.",
+      "url": "https://variety.com/2024/tv/news/disney-blackout-directv-credit-sling-fubo-streaming-1236135666/",
+      "urlToImage": "https://variety.com/wp-content/uploads/2024/09/DirecTV.png?w=1000&h=563&crop=1",
+      "publishedAt": "2024-09-06T21:40:00Z",
+      "content": "Carriage fights create some strange bedfellows.\r\nDirecTV, at loggerheads with Disney over a new deal for ESPN, ABC and other networks, announced that it would give its customers a $30 credit toward t… [+2269 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "CHRISTOPHER RUGABER",
+      "title": "Sluggish US jobs report clears the way for Federal Reserve to cut interest rates - The Associated Press",
+      "description": "Hiring by America’s employers picked up a bit in August from July’s tepid pace, and the unemployment rate dipped for the first time since March in a sign that the job market may be cooling but remains sturdy. Employers added a modest 142,000 jobs, up from a s…",
+      "url": "https://apnews.com/article/jobs-hiring-federal-reserve-inflation-unemployment-economy-bac1b453d3873d5f23f2061344d28fd9",
+      "urlToImage": "https://dims.apnews.com/dims4/default/2b026fc/2147483647/strip/true/crop/6569x3695+0+342/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F7e%2F05%2F4f8f26941e62e06ca79d2af62dd8%2Fb8c42606e515464d9db146581a62ab23",
+      "publishedAt": "2024-09-06T21:20:00Z",
+      "content": "WASHINGTON (AP) Hiring by Americas employers picked up a bit in August from Julys tepid pace, and the unemployment rate dipped for the first time since March in a sign that the job market may be cool… [+6615 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Investopedia"
+      },
+      "author": "Colin Laidley",
+      "title": "Why Nvidia and Chip Stocks Just Had Their Worst Week in More Than 2 Years - Investopedia",
+      "description": "Chip stocks slumped this week, with the PHLX Semiconductor Index (SOX) tumbling 10%, its biggest weekly decline since January 2022.",
+      "url": "https://www.investopedia.com/why-nvidia-and-chip-stocks-just-had-their-worst-week-in-more-than-2-years-8707917",
+      "urlToImage": "https://www.investopedia.com/thmb/jMrlTJoDn3v0TwpZ3JxipYqkUI0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1730512657-88a48344eab1403f96db9f8cde52bb89.jpg",
+      "publishedAt": "2024-09-06T21:01:33Z",
+      "content": "<ul><li>Chip stocks had their worst week since January 2022, as AI investor favorite Nvidia lost about 14% during the holiday-shortened trading week.</li><li>Broadcom shares fell 10% after the compan… [+1985 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "S&P 500 Closes 1.7% Lower | Closing Bell - Bloomberg Television",
+      "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "url": "https://www.youtube.com/",
+      "urlToImage": "https://www.youtube.com/img/desktop/yt_1200.png",
+      "publishedAt": "2024-09-06T20:55:16Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "TheStreet"
+      },
+      "author": "James \"Rev Shark\" DePorre",
+      "title": "The Easiest Mistake You Can Make in a Market Like This - TheStreet",
+      "description": "Two issues are keeping buyers on the sidelines as the bullish Goldilocks economic narrative starts to fall apart.",
+      "url": "https://pro.thestreet.com/market-commentary/the-easiest-mistake-you-can-make-in-a-market-like-this",
+      "urlToImage": "https://pro.thestreet.com/.image/ar_1.91%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_1200/MjA1MDQzNzA1ODA2MDcxNTQ4/3-15-24-former-nyse-trader-reveals-his-worst-trading-mistake.jpg",
+      "publishedAt": "2024-09-06T20:45:00Z",
+      "content": "There were only four days of trading after the Labor Day holiday, but so far, September is living up to its reputation as the worst month of the year for the stock market. The indexes had their worst… [+2039 chars]"
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": "Lu Wang, Denitsa Tsekova",
+      "title": "Wall Street Traders Suddenly Converge on Economic Hazards Ahead - Bloomberg",
+      "description": "For those on Wall Street clinging to the bull case on the economy, life is getting harder.",
+      "url": "https://www.bloomberg.com/news/articles/2024-09-06/wall-street-traders-suddenly-converge-on-economic-hazards-ahead",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iSvu7sAhlX9c/v0/1200x800.jpg",
+      "publishedAt": "2024-09-06T20:26:19Z",
+      "content": "For those on Wall Street clinging to the bull case on the economy, life is getting harder.\r\nTroubling data long foretold in the bond and commodity markets woke traders across risky assets up from the… [+93 chars]"
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": "Matt Richardson",
+      "title": "How much will a $500,000 mortgage cost per month after rates are cut? - CBS News",
+      "description": "The costs for a $500,000 mortgage loan are manageable now and could become cheaper in the weeks and months ahead.",
+      "url": "https://www.cbsnews.com/news/how-much-will-500000-mortgage-cost-per-month-after-rates-are-cut/",
+      "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2024/09/06/fb445580-0590-4a6f-a460-218f59eb86b1/thumbnail/1200x630/8d3560185b2826ce7562583b652d0d9f/gettyimages-2163531457.jpg?v=631cf5f2b4e8db7f9bc428589402864d",
+      "publishedAt": "2024-09-06T20:00:19Z",
+      "content": "When buying a home, it's critical to determine costs at today's interest rates – and what they could be soon.\r\nGetty Images\r\nHomebuyers stuck on the sidelines waiting for mortgage interest rates to f… [+4005 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Thebaltimorebanner.com"
+      },
+      "author": "Cody Boteler",
+      "title": "Offshore wind was approved in Maryland. Here’s what it could look like. - The Baltimore Banner",
+      "description": "The Maryland Offshore Wind Project can build more than 110 offshore wind turbines about 10 miles off the coast and power over 718,000 homes on the Delmarva Peninsula.",
+      "url": "https://www.thebaltimorebanner.com/community/climate-environment/offshore-wind-ocean-city-view-VORVEDQSPBGDVD3ZOOC5PTZQFQ/",
+      "urlToImage": "https://thebaltimorebanner.com/resizer/v2/XN2Y5EVOKFGO3NE22WT6VWKQ5U.png?auth=30637324bc918ff2b5cdaa8b328c3c15f2994ee62311021945562fef46b6c86d&width=657&smart=true&quality=85",
+      "publishedAt": "2024-09-06T20:00:00Z",
+      "content": "Offshore wind could be coming to Maryland. Federal officials on Thursday approved the Maryland Offshore Wind Project. As planned, the project can build up to 114 offshore wind turbines about 10 miles… [+5037 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": null,
+      "title": "Owner of OnlyFans paid $631m as subscription numbers rise - BBC.com",
+      "description": "Leonid Radvinsky's huge earnings were revealed in the online platform's latest accounts.",
+      "url": "https://www.bbc.com/news/articles/c1m01dp3507o",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/afe4/live/740c5bd0-6c82-11ef-b970-9f202720b57a.jpg",
+      "publishedAt": "2024-09-06T19:42:21Z",
+      "content": "Leonid Radvinsky, the owner of OnlyFans, paid himself $631m (£480m) over a period of almost two years as traffic on online platform continued to increase.\r\nFenix International, which owns the site us… [+2109 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Tipranks.com"
+      },
+      "author": "Steve Anderson",
+      "title": "Shareholders Revolt as Intel’s (NASDAQ:INTC) Fire Sale Continues - TipRanks",
+      "description": "Everything must go at Intel ($INTC), apparently. The chip stock is starting to look like it is being sold off down to the bare walls as it restructures its business...",
+      "url": "https://www.tipranks.com/news/shareholders-revolt-as-intel-nasdaqintc-fire-sale-continues",
+      "urlToImage": "https://blog.tipranks.com/wp-content/uploads/2024/09/intel-shutterstock_1807747930-750x406.jpg",
+      "publishedAt": "2024-09-06T19:10:34Z",
+      "content": "Everything must go at Intel (INTC), apparently. The chip stock is starting to look like it is being sold off down to the bare walls as it restructures its business, and two major new moves have emerg… [+1976 chars]"
+    },
+    {
+      "source": {
+        "id": "fortune",
+        "name": "Fortune"
+      },
+      "author": "Sasha Rogelberg",
+      "title": "Red Lobster CEO secretly visited restaurants around the country before being made boss - Fortune",
+      "description": "Damola Adamolekun sampled crab legs and lobster tail in a food tour starting in May and ending in August when he was hired.",
+      "url": "https://fortune.com/2024/09/06/red-lobster-ceo-secretly-visited-restaurants-around-the-country-before-being-made-boss/",
+      "urlToImage": "https://fortune.com/img-assets/wp-content/uploads/2024/09/Damola_Adamolekun_PR-73_landscape_small.jpg?resize=1200,600",
+      "publishedAt": "2024-09-06T18:51:00Z",
+      "content": "For food critics, its common convention to never post your face on social media, lest you be recognized at a restaurant youre tasked with reviewing and get preferential treatment. With the same surre… [+4410 chars]"
+    },
+    {
+      "source": {
+        "id": "the-wall-street-journal",
+        "name": "The Wall Street Journal"
+      },
+      "author": "Alexander Saeedy",
+      "title": "Exclusive | JPMorgan Plans to Report Customers Who Exploited TikTok ‘Glitch’ to Authorities - The Wall Street Journal",
+      "description": "Thousands of people withdrew money after depositing bad checks",
+      "url": "https://www.wsj.com/finance/banking/jpmorgan-plans-to-report-customers-who-exploited-tiktok-glitch-to-authorities-cb5f5cef",
+      "urlToImage": "https://images.wsj.net/im-49032524/social",
+      "publishedAt": "2024-09-06T18:27:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": "Ann Saphir, Lindsay Dunsmuir, Michael Derby",
+      "title": "Fed policymakers say they are ready to start cutting interest rates - Reuters",
+      "description": "They noted a cooling in the labor market that could accelerate into something more dire in the absence of a policy shift.",
+      "url": "https://www.reuters.com/markets/rates-bonds/fed-seen-delivering-upsized-rate-cut-us-job-growth-cools-2024-09-06/",
+      "urlToImage": "https://www.reuters.com/resizer/v2/52LE33EE6FKZVNSAQOLC6RIH7E.jpg?auth=7dd647e25999f469fded5bc9c421c9f51aa6d0372eb3768d82eb20ae4e14b1c3&height=1005&width=1920&quality=80&smart=true",
+      "publishedAt": "2024-09-06T18:10:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "MarketWatch"
+      },
+      "author": "Emily Bary",
+      "title": "Nvidia shed $406 billion in market cap this week. What’s next for the stock? - MarketWatch",
+      "description": "That’s a record weekly loss for any U.S. company — and more than the combined value of AMD and Qualcomm",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-is-flirting-with-its-worst-week-in-two-years-what-comes-next-c40247ba",
+      "urlToImage": "https://images.mktw.net/im-73531620/social",
+      "publishedAt": "2024-09-06T17:52:00Z",
+      "content": "Nvidia Corp.s stock continued to bleed in the aftermath of last weeks earnings report. \r\nThe stock has fallen in four of the six sessions since that report, and it saw especially heavy pressure this … [+203 chars]"
+    },
+    {
+      "source": {
+        "id": "usa-today",
+        "name": "USA Today"
+      },
+      "author": "Ahjané Forbes",
+      "title": "LL Flooring, formerly Lumber Liquidators, closing all 400-plus stores amid bankruptcy - USA TODAY",
+      "description": "American flooring company LL Flooring announced that it will be closing all its more than 400 stores, with sales starting Friday.",
+      "url": "https://www.usatoday.com/story/money/2024/09/06/ll-flooring-lumber-liquidators-closing/75103224007/",
+      "urlToImage": "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/09/06/USAT/75103827007-usatsi-23996403.jpg?crop=1997,1124,x0,y216&width=1997&height=1124&format=pjpg&auto=webp",
+      "publishedAt": "2024-09-06T17:31:13Z",
+      "content": "American flooring company LL Flooring announced it will be closing its stores, with closing sales starting on Friday, Sept. 6. \r\nSince opening its doors in 1993, LL Flooring has operated more than 40… [+3022 chars]"
+    }
+  ]
+}
