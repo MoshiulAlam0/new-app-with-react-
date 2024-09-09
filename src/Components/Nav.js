@@ -25,7 +25,7 @@ const Nav = () => {
       <div   id="nav-item-con" className="nav-con flex items-center justify-center gap-[4vmin]">
         {["home", "top", "Catagory", "Contact"].map((e, i) => {
           return (
-            <h1 className="cursor-pointer capitalize hover:text-black font-extralight">
+            <h1 key={i} className="cursor-pointer capitalize hover:text-black font-extralight">
               {e}
             </h1>
           );

@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-const NewsItem = ({imgUrl, link, titel, date, author, source}) => {
+const NewsItem = ({id, imgUrl, link, titel, date, author, source}) => {
   let img = "https://media.gettyimages.com/id/1311148884/vector/abstract-globe-background.jpg?s=612x612&w=gi&k=20&c=G5uPfn2VTF3aXCr76pn1T7oWE-aHVQ0rAYMl_MK2OvM="
   return (
-    <div id='new-item-con' className=" text-white aspect-[1/.9] bg-[#686868] w-[55vmin] pb-2 rounded-md overflow-hidden">
+    <div key={id} id='new-item-con' className=" text-white aspect-[1/.9] bg-[#686868] w-[55vmin] pb-2 rounded-md overflow-hidden">
     <img
       className="w-full aspect-[1/.5] mb-3"
       src={imgUrl ? imgUrl : img}
