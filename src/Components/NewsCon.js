@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import NewsItem from "../Components/NewsItem";
 import ChangeBtn from "./ChangeBtn";
 import PropTypes from "prop-types";
+import Loder from "./Loder";
 
 const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
-  const [prevBtnDnone, setprevBtnDnone] = useState(true);
-  const [nextBtnDnone, setnextBtnDnone] = useState(true);
-  const [isCalled, setisCalled] = useState(true);
-  const [page, setpage] = useState(1);
+  const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae 
+  const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae 
+  const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae 
+  const [isCalled, setisCalled] = useState(true);   //call loaddate funct for one time 
+  const [page, setpage] = useState(1);  /// page counter 
   /**store data on the state : */
   const [data, setdata] = useState({
     status: "ok",
@@ -79,86 +81,101 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
       },
     ],
   });
-  //   const [data, setdata] = useState({
-  //     status: "ok",
-  //     totalResults: 59,
-  //     articles: [],
-  //   });
+// ====================== api data on state =======================
+  // const [data, setdata] = useState({
+  //   status: "ok",
+  //   totalResults: 59,
+  //   articles: [],
+  // });
 
-  /**for api data function " ===>*/
-  async function dataLoad() {
-    let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
-    // let res = await fetch(url)
-    // let data = await res.json()
-    // setdata(data);
-    // console.log(url)
-    if(pageSize === data.articles.length){
-        setnextBtnDnone(false)
-    }
-    if(page > 1){
-        setprevBtnDnone(false)
-    }
-  }
-  useEffect(() => {
-    if (isCalled) {
-      setisCalled(false);
-      dataLoad();
-    }
-  });
+  /**====================for api data function " ===>*/
+  // async function dataLoad() {
+  //   try {
+  //     let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
+  //     let res = await fetch(url);
+  //     let data = await res.json();
+  //     setdata(data);
+
+  //     setspinerIsBlock(false); /// hide spiner 
+
+  //     //================= show or hide page change btn ================
+  //     if (pageSize === data.articles.length) {
+  //       setnextBtnDnone(false);
+  //     } else {
+  //       setnextBtnDnone(true);
+  //     }
+  //     if (page > 1) {
+  //       setprevBtnDnone(false);
+  //     } else {
+  //       setprevBtnDnone(true);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   // ======== ==================================================
+  // }
+  // useEffect(() => {
+  //   if (isCalled) {
+  //     setisCalled(false);
+  //     dataLoad();
+  //   }
+  // });
 
   /**
-change page function 
+==================change page function =====>
 */
-  const changeNext = () => {
-    setpage(page + 1);
-    dataLoad();
-  };
-  const changePrev = () => {
-    setpage(page - 1);
-    dataLoad();
-  };
-
+  // const changeNext = () => {
+  //   setdata({ status: "ok", totalResults: 59, articles: [] });
+  //   setpage(page + 1);
+  //   setspinerIsBlock(true);
+  //   dataLoad();
+  // };
+  // const changePrev = () => {
+  //   setdata({ status: "ok", totalResults: 59, articles: [] });
+  //   setpage(page - 1);
+  //   setspinerIsBlock(true);
+  //   dataLoad();
+  // };
+// ==============================================
   return (
-    <div className="w-full mt-[65px] px-[6vmin]">
+    <div className="w-full mt-[4px] px-[6vmin]">
       <h1 className="text-center py-4 text-[2rem] capitalize font-extralight">
         Top head line about the buisness
       </h1>
       <div className="main flex flex-wrap gap-[2vmin] items-center justify-center">
         {data.status === "ok" ? (
-          data.articles.length > 0 ? (
-            data.articles.map((e, i) => {
-              return (
-                <NewsItem
-                  id={i}
-                  titel={e.title}
-                  link={e.url}
-                  imgUrl={e.urlToImage}
-                  source={e.source.name}
-                  author={e.author}
-                  date={e.publishedAt}
-                />
-              );
-            })
-          ) : (
-            <h1>there are no news</h1>
-          )
+          data.articles.length > 0 &&
+          data.articles.map((e, i) => {
+            return (
+              <NewsItem
+                id={i}
+                titel={e.title}
+                link={e.url}
+                imgUrl={e.urlToImage}
+                source={e.source.name}
+                author={e.author}
+                date={e.publishedAt}
+              />
+            );
+          })
         ) : (
           <h1>No SIgnal</h1>
         )}
+        <Loder display={spinerIsBlock} />
       </div>
       <div className="page-change-btn w-[60%] flex items-center justify-between m-auto py-4">
-        <ChangeBtn func={changePrev} text={"⇠ prev"} d_none={prevBtnDnone} />
+        {/* <ChangeBtn func={changePrev} text={"⇠ prev"} d_none={prevBtnDnone} />
         <ChangeBtn
           func={changeNext}
           text={"next ⇢"}
           d_none={nextBtnDnone}
           marginLorR={"ml-auto"}
-        />
+        /> */}
       </div>
     </div>
   );
 };
-
+// ====================== set props and default proos ====================
 NewsCon.propTypes = {
   all: PropTypes.string,
   country: PropTypes.string,
@@ -170,6 +187,6 @@ NewsCon.defaultProps = {
   all: "top-headlines",
   country: "us",
   category: "business",
-  pageSize: 10,
+  pageSize: 9,
 };
 export default NewsCon;
