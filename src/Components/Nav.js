@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+
+import React, { useContext, useState } from 'react'
+import {valueContext} from '../Context/SearchValue'
+
 
 const Nav = () => {
+  const stateValue = useContext(valueContext)
+//  console.log(stateValue)
+
   const [num, setnum] = useState(0);
   const menuControl = () => {
     if (num === 1) {
@@ -12,12 +18,16 @@ const Nav = () => {
     }
   };
 
+  const categoryValuSet  = ()=>{
+    console.log(stateValue)
+  }
+  
   return (
     <div className="fixed top-0 left-0 w-full bg-rose-600 flex items-center justify-between px-10 py-4">
       <div className="logo">
-        <a href="/" key={1} className="font-light tracking-[1vmin]">
+        {/* <a href="/" key={1} className="font-light tracking-[1vmin]">
           News Trendy
-        </a>
+        </a> */}
       </div>
       <div
         onClick={menuControl}
@@ -42,6 +52,7 @@ const Nav = () => {
         ].map((e, i) => {
           return (
             <a
+              onClick={categoryValuSet}
               href={e === "home" ? "/" : e}
               key={i}
               className="cursor-pointer capitalize hover:text-black font-extralight"

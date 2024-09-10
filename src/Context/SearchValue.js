@@ -1,5 +1,5 @@
 'use client'
 
 import { createContext } from "react"
-const valueContext = createContext(0);
+export const valueContext = createContext(0);
 

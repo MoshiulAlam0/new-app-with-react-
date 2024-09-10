@@ -4,12 +4,12 @@ import ChangeBtn from "./ChangeBtn";
 import PropTypes from "prop-types";
 import Loder from "./Loder";
 
-const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
-  const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae 
-  const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae 
-  const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae 
-  const [isCalled, setisCalled] = useState(true);   //call loaddate funct for one time 
-  const [page, setpage] = useState(1);  /// page counter 
+const NewsCon = ({ keyCode, all, country, category, pageSize, isSearch }) => {
+  const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae
+  const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae
+  const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae
+  const [isCalled, setisCalled] = useState(true); //call loaddate funct for one time
+  const [page, setpage] = useState(1); /// page counter
   /**store data on the state : */
   const [data, setdata] = useState({
     status: "ok",
@@ -81,7 +81,7 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
       },
     ],
   });
-// ====================== api data on state =======================
+  // ====================== api data on state =======================
   // const [data, setdata] = useState({
   //   status: "ok",
   //   totalResults: 59,
@@ -89,37 +89,61 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
   // });
 
   /**====================for api data function " ===>*/
-  // async function dataLoad() {
-  //   try {
-  //     let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
-  //     let res = await fetch(url);
-  //     let data = await res.json();
-  //     setdata(data);
+  async function dataLoad() {
+    try {
+      if (isSearch) {
+        console.log('hello semakjdk kkdfksj ')
+        setdata({
+          status: "ok",
+          totalResults: 59,
+          articles: [
+            {
+              source: {
+                id: null,
+                name: "Investor's Business Daily",
+              },
+              author: "Investor's Business Daily",
+              title:
+                "Palantir, Dell Will Finally Join The S&P 500. The Stocks Are Jumping. - Investor's Business Daily",
+              description: null,
+              url: "https://www.investors.com/news/palantir-dell-join-sp-500-ai-stocks-jumping/",
+              urlToImage: null,
+              publishedAt: "2024-09-07T00:07:00Z",
+              content: null,
+            },
+          ],
+        });
+      } else {
+        let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
+        let res = await fetch(url);
+        let data = await res.json();
+        setdata(data);
+      }
 
-  //     setspinerIsBlock(false); /// hide spiner 
+      setspinerIsBlock(false); /// hide spiner
 
-  //     //================= show or hide page change btn ================
-  //     if (pageSize === data.articles.length) {
-  //       setnextBtnDnone(false);
-  //     } else {
-  //       setnextBtnDnone(true);
-  //     }
-  //     if (page > 1) {
-  //       setprevBtnDnone(false);
-  //     } else {
-  //       setprevBtnDnone(true);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   // ======== ==================================================
-  // }
-  // useEffect(() => {
-  //   if (isCalled) {
-  //     setisCalled(false);
-  //     dataLoad();
-  //   }
-  // });
+      //================= show or hide page change btn ================
+      if (pageSize === data.articles.length) {
+        setnextBtnDnone(false);
+      } else {
+        setnextBtnDnone(true);
+      }
+      if (page > 1) {
+        setprevBtnDnone(false);
+      } else {
+        setprevBtnDnone(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    // ======== ==================================================
+  }
+  useEffect(() => {
+    if (isCalled) {
+      setisCalled(false);
+      dataLoad();
+    }
+  });
 
   /**
 ==================change page function =====>
@@ -136,7 +160,7 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
   //   setspinerIsBlock(true);
   //   dataLoad();
   // };
-// ==============================================
+  // ==============================================
   return (
     <div className="w-full mt-[4px] px-[6vmin]">
       <h1 className="text-center py-4 text-[2rem] capitalize font-extralight">
