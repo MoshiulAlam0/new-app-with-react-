@@ -1,6 +1,7 @@
 
 import React, { useContext, useState } from 'react'
 import {valueContext} from '../Context/SearchValue'
+import { Link } from 'react-router-dom';
 
 
 const Nav = () => {
@@ -51,14 +52,14 @@ const Nav = () => {
           "technology",
         ].map((e, i) => {
           return (
-            <a
+            <Link
               onClick={categoryValuSet}
-              href={e === "home" ? "/" : e}
+              to={e === "home" ? "/" : e}
               key={i}
               className="cursor-pointer capitalize hover:text-black font-extralight"
             >
               {e}
-            </a>
+            </Link>
           );
         })}
       </div>
