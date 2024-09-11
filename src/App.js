@@ -5,102 +5,56 @@ import Search from "./Components/Search";
 import { valueContext } from "./Context/SearchValue";
 import { Route, Routes } from "react-router-dom";
 
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
-  let key = 'd7fe1b124a9344b9831ca2e1ee451a42'
-  // let key = "a7eefe62fac34b09b7684219260fccd2";
+  // let key = 'd7fe1b124a9344b9831ca2e1ee451a42' // key 1
+  let key = "a7eefe62fac34b09b7684219260fccd2";  // key 2
 
   const [searchValue, setsearchValue] = useState("");
-  // const [category, setcategory] = useState("business");
-
-  // for routin
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <NewsCon keyCode={key} category={"politics"} />,
-  //   },
-  //   {
-  //     path: "business",
-  //     element: <NewsCon keyCode={key} category={"business"} />,
-  //   },
-  //   {
-  //     path: "entertainment",
-  //     element: <NewsCon keyCode={key} category={"entertainment"} />,
-  //   },
-  //   {
-  //     path: "general",
-  //     element: <NewsCon keyCode={key} category={"general"} />,
-  //   },
-  //   {
-  //     path: "health",
-  //     element: <NewsCon keyCode={key} category={"health"} />,
-  //   },
-  //   {
-  //     path: "science",
-  //     element: <NewsCon keyCode={key} category={"science"} />,
-  //   },
-  //   {
-  //     path: "sports",
-  //     element: <NewsCon keyCode={key} category={"sports"} />,
-  //   },
-  //   {
-  //     path: "technology",
-  //     element: <NewsCon keyCode={key} category={"technology"} />,
-  //   },
-  //   {
-  //     path: "search",
-  //     element: <NewsCon keyCode={key} category={"technology"} isSearch={searchValue}/>,
-  //   },
-
-  // ]);
-  
 
   return (
     <valueContext.Provider
-      value={{ searchValue, setsearchValue }}
+      value={{ searchValue, setsearchValue}}
     >
       <div>
         <Nav />
         <Search />
         <Routes>
-          {/* <NewsCon keyCode={key} /> */}
-          {/* <RouterProvider router={router} /> */}
           <Route
             path="/"
-            element={<NewsCon keyCode={key} category={"politics"}  isfetch={true}/>}
+            element={<NewsCon keyCode={key} category={"politics"}  />}
           />
           <Route
             path= "/business"
-            element= {<NewsCon keyCode={key} category={"business"}  isfetch={true} />}
+            element= {<NewsCon keyCode={key} category={"business"}  />}
           />
           <Route
              path= "/entertainment"
-            element= {<NewsCon keyCode={key} category={"entertainment"}  isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"entertainment"}  />}
           />
           <Route
             path= "/general"
-            element= {<NewsCon keyCode={key} category={"general"}  isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"general"}  />}
           />
           <Route
             path= "/health"
-            element= {<NewsCon keyCode={key} category={"health"} isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"health"}  />}
           />
           <Route
             path= "/science"
-            element= {<NewsCon keyCode={key} category={"science"}  isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"science"}  />}
           />
           <Route
             path= "/sports"
-            element= {<NewsCon keyCode={key} category={"sports"}  isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"sports"}  />}
           />
           <Route
             path= "/technology"
-            element= {<NewsCon keyCode={key} category={"technology"}  isfetch={true}/>}
+            element= {<NewsCon keyCode={key} category={"technology"}  />}
           />
           <Route
             path= "/search"
-            element={<NewsCon keyCode={key} category={"technology"} searchText={searchValue} isfetch={true}/>}
+            element={<NewsCon keyCode={key} category={"technology"} searchText={searchValue} />}
           />
         </Routes>
       </div>

@@ -4,7 +4,14 @@ import ChangeBtn from "./ChangeBtn";
 import PropTypes from "prop-types";
 import Loder from "./Loder";
 
-const NewsCon = ({ keyCode, all, country, category, pageSize, searchText, isfetch }) => {
+const NewsCon = ({
+  keyCode,
+  all,
+  country,
+  category,
+  pageSize,
+  searchText,
+}) => {
   const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae
   const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae
   const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae
@@ -87,6 +94,7 @@ const NewsCon = ({ keyCode, all, country, category, pageSize, searchText, isfetc
     totalResults: 59,
     articles: [],
   });
+
   /**====================for api data function " ===>*/
   async function dataLoad(isCategory) {
     // console.log(all , country, category, pageSize, page, 'hello ')
@@ -120,17 +128,20 @@ const NewsCon = ({ keyCode, all, country, category, pageSize, searchText, isfetc
     }
   }
 
-    // ======== ==================================================
+  // ======== ==================================================
   useEffect(() => {
-    if (isCalled) {
-      setisCalled(false);
       dataLoad(true);
-    }
-  });
+      console.log('heldlodfn kdkfjk')
+  }, []);
+  useEffect(() => {
+      dataLoad(true);
+      console.log('heldlodfn kdkfjk')
+      console.log(category)
+  }, [category]);
 
   /**
-==================change page function =====>
-*/
+    ==================change page function =====>
+  */
   const changeNext = () => {
     setdata({ status: "ok", totalResults: 59, articles: [] });
     setpage(page + 1);
