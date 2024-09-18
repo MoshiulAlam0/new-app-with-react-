@@ -13,7 +13,7 @@ const NewsItem = ({id, imgUrl, link, titel, date, author, source}) => {
     <div className="text w-full px-2">
       <p className='text-[.9rem] my-1 text-[#ffc811] capitalize'>source : {source?source:'no record'}</p>
       <h1 className=" capitalize text-[1rem] font-extralight leading-none">
-        {titel.length > 70 ? titel.slice(0, 70)+"..." : titel}
+        {titel?.length > 70 ? titel.slice(0, 70)+"..." : titel}
       </h1>
       <p className='font-light text-[.8rem] my-1 text-[#d8d8d8]'>by {author?author:'no record'} on {date}</p>
       <a href={link} target="_blank"

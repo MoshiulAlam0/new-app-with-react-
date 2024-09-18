@@ -107,14 +107,14 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
       setTimeout(() => {
         setnetErrorDisplay('block')
         setspinerIsBlock(false)
-      }, 5000);
+      }, 10000);
 
       if (searchState.searchValue) {       /// for search 
-        let url = `https://newsapi.org/v2/everything?q=bit&apiKey=${keyCode}`;
+        console.log(searchState.searchValue)
+        let url = `https://newsapi.org/v2/everything?q=${searchState.searchValue}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
         const res = await fetch(url);
         const result = await res.json();
         setdata(result);
-        console.log(data);
         searchState.setsearchValue(null)
       } else {                            // for all category 
         let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
@@ -122,9 +122,9 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
         let data = await res.json();
         setdata(data);
       }
+      setnextBtnDnone(false); // show next btn
       setnetErrorDisplay('none')    // hide net error massage .
       setspinerIsBlock(false); /// hide spiner
-      setnextBtnDnone(false); // show next btn
       
       //================= show or hide page change btn ================
       if (pageSize === data.articles.length) {
@@ -138,12 +138,13 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
         setprevBtnDnone(true);
       }
     } catch (error) {
-      console.log(error);
+      console.warn(error);
     }
   }
 
   // ======== ==================================================
   useEffect(() => {
+    setpage(1)
     dataLoad();
   }, [category, searchState.searchDepandency]);
 
@@ -185,7 +186,7 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
               );
             })
           ) : (
-            <h1 style={{display: netErrorDisplay}} className="text-center">net conection is slow...!</h1>
+            <h1 style={{display: netErrorDisplay}} className="text-center">net conection is slow...! <br /> hold on a few minits......</h1>
           )
         ) : (
           <h1>No SIgnal</h1>

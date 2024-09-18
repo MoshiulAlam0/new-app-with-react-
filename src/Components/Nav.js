@@ -2,9 +2,9 @@ import React, { useContext, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
-  const logoRef = useRef() // ref  for logo 
+  const logoRef = useRef(); // ref  for logo
 
-  const [num, setnum] = useState(0);  /// for menu show and hide 
+  const [num, setnum] = useState(0); /// for menu show and hide
 
   const menuControl = () => {
     if (num === 1) {
@@ -15,12 +15,18 @@ const Nav = () => {
       setnum(1);
     }
   };
-// console.log(logoRef.classList)
-  // style={{display: logoRef.current.classList }}
+ 
+  // console.log(logoRef.current)
   return (
     <div className="fixed top-0 left-0 w-full z-20 bg-rose-600 flex items-center justify-between px-10 py-4">
       <div className="logo">
-        <NavLink ref={logoRef}  to="/" key={1} className="font-light tracking-[1vmin]">
+        <NavLink
+          ref={logoRef}
+          to="/"
+          key={1}
+          className="font-light tracking-[1vmin]"
+          style={{color: logoRef.current?.classList?.contains('active')?'white':'white'}}
+        >
           News Trendy
         </NavLink>
       </div>
@@ -49,7 +55,7 @@ const Nav = () => {
             <NavLink
               to={e === "home" ? "/" : e}
               key={i}
-              className={`cursor-pointer capitalize hover:text-black font-extralight`} 
+              className={`cursor-pointer capitalize hover:text-black font-extralight`}
             >
               {e}
             </NavLink>
