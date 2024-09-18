@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NewsItem from "../Components/NewsItem";
 import ChangeBtn from "./ChangeBtn";
 import PropTypes from "prop-types";
 import Loder from "./Loder";
+import { valueContext } from "../Context/SearchValue";
 
-const NewsCon = ({
-  keyCode,
-  all,
-  country,
-  category,
-  pageSize,
-  searchText,
-}) => {
+const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
+  const searchState = useContext(valueContext);  // context 
+
   const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae
   const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae
-  const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae
-  const [isCalled, setisCalled] = useState(true); //call loaddate funct for one time
   const [page, setpage] = useState(1); /// page counter
+  
+  const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae
+  const [netErrorDisplay, setnetErrorDisplay] = useState('none'); // show net connection erooor massage 
+
   /**store data on the state : */
   // const [data, setdata] = useState({
   //   status: "ok",
@@ -91,27 +89,43 @@ const NewsCon = ({
   // ====================== api data on state =======================
   const [data, setdata] = useState({
     status: "ok",
-    totalResults: 59,
+    totalResults: 0,
     articles: [],
   });
 
   /**====================for api data function " ===>*/
-  async function dataLoad(isCategory) {
-    // console.log(all , country, category, pageSize, page, 'hello ')
-    // console.log(isCategory);
+  async function dataLoad() {
     try {
-      if (isCategory) {
-        console.log("category");
-      } else {
-        console.log("search");
-      }
-      // setspinerIsBlock(true); /// show spiner
-      let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
-      let res = await fetch(url);
-      let data = await res.json();
-      setdata(data);
-      setspinerIsBlock(false); /// hide spiner
+      setdata({
+        status: "ok",
+        totalResults: 0,
+        articles: [],
+      });
+      setnetErrorDisplay('none')
+      setnextBtnDnone(true);  /// hide next btn 
+      setspinerIsBlock(true); /// show spiner
+      setTimeout(() => {
+        setnetErrorDisplay('block')
+        setspinerIsBlock(false)
+      }, 5000);
 
+      if (searchState.searchValue) {       /// for search 
+        let url = `https://newsapi.org/v2/everything?q=bit&apiKey=${keyCode}`;
+        const res = await fetch(url);
+        const result = await res.json();
+        setdata(result);
+        console.log(data);
+        searchState.setsearchValue(null)
+      } else {                            // for all category 
+        let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
+        let res = await fetch(url);
+        let data = await res.json();
+        setdata(data);
+      }
+      setnetErrorDisplay('none')    // hide net error massage .
+      setspinerIsBlock(false); /// hide spiner
+      setnextBtnDnone(false); // show next btn
+      
       //================= show or hide page change btn ================
       if (pageSize === data.articles.length) {
         setnextBtnDnone(false);
@@ -130,14 +144,8 @@ const NewsCon = ({
 
   // ======== ==================================================
   useEffect(() => {
-      dataLoad(true);
-      console.log('heldlodfn kdkfjk')
-  }, []);
-  useEffect(() => {
-      dataLoad(true);
-      console.log('heldlodfn kdkfjk')
-      console.log(category)
-  }, [category]);
+    dataLoad();
+  }, [category, searchState.searchDepandency]);
 
   /**
     ==================change page function =====>
@@ -158,24 +166,27 @@ const NewsCon = ({
   return (
     <div className="w-full mt-[4px] px-[6vmin]">
       <h1 className="text-center py-4 text-[2rem] capitalize font-extralight">
-        Top head line about the buisness
+        Top head line about the {category === 'politics'? 'new news' : category}
       </h1>
       <div className="main flex flex-wrap gap-[2vmin] items-center justify-center">
         {data.status === "ok" ? (
-          data.articles.length > 0 &&
-          data.articles.map((e, i) => {
-            return (
-              <NewsItem
-                id={i}
-                titel={e.title}
-                link={e.url}
-                imgUrl={e.urlToImage}
-                source={e.source.name}
-                author={e.author}
-                date={e.publishedAt}
-              />
-            );
-          })
+          data.articles.length > 0 ? (
+            data.articles.map((e, i) => {
+              return (
+                <NewsItem
+                  id={i}
+                  titel={e.title}
+                  link={e.url}
+                  imgUrl={e.urlToImage}
+                  source={e.source.name}
+                  author={e.author}
+                  date={e.publishedAt}
+                />
+              );
+            })
+          ) : (
+            <h1 style={{display: netErrorDisplay}} className="text-center">net conection is slow...!</h1>
+          )
         ) : (
           <h1>No SIgnal</h1>
         )}
@@ -204,7 +215,7 @@ NewsCon.defaultProps = {
   keyCode: "a7eefe62fac34b09b7684219260fccd2",
   all: "top-headlines",
   country: "us",
-  category: "business",
+  category: "tecnology",
   pageSize: 9,
 };
 export default NewsCon;

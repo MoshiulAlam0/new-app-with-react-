@@ -15,15 +15,17 @@ const Search = () => {
         className="py-2 px-3 w-full text-black"
         placeholder="search your news.."
       />
-      <Link
-      to="search"
+      <button
         onClick={() => {
-          stateValue.setsearchValue(value) // set field value on the context state variable.
+          if (value !== '') {
+            stateValue.setsearchValue(value)     //set field value on the context state variable.
+            stateValue.setsearchDepandency(value)     //set search depandency on the context state variable. for relode page .
+          }
         }}
         className="bg-[#3e62ff] py-2 px-8 capitalize"
       >
         search
-      </Link>
+      </button>
     </div>
   );
 };

@@ -1,10 +1,11 @@
-
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
-
+import React, { useContext, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
-  const [num, setnum] = useState(0);
+  const logoRef = useRef() // ref  for logo 
+
+  const [num, setnum] = useState(0);  /// for menu show and hide 
+
   const menuControl = () => {
     if (num === 1) {
       document.querySelector("#nav-item-con").style.top = "-100%";
@@ -14,14 +15,14 @@ const Nav = () => {
       setnum(1);
     }
   };
-
-
+// console.log(logoRef.classList)
+  // style={{display: logoRef.current.classList }}
   return (
-    <div className="fixed top-0 left-0 w-full bg-rose-600 flex items-center justify-between px-10 py-4">
+    <div className="fixed top-0 left-0 w-full z-20 bg-rose-600 flex items-center justify-between px-10 py-4">
       <div className="logo">
-        <Link to="/" key={1} className="font-light tracking-[1vmin]">
+        <NavLink ref={logoRef}  to="/" key={1} className="font-light tracking-[1vmin]">
           News Trendy
-        </Link>
+        </NavLink>
       </div>
       <div
         onClick={menuControl}
@@ -45,13 +46,13 @@ const Nav = () => {
           "technology",
         ].map((e, i) => {
           return (
-            <Link
+            <NavLink
               to={e === "home" ? "/" : e}
               key={i}
-              className="cursor-pointer capitalize hover:text-black font-extralight"
+              className={`cursor-pointer capitalize hover:text-black font-extralight`} 
             >
               {e}
-            </Link>
+            </NavLink>
           );
         })}
       </div>
