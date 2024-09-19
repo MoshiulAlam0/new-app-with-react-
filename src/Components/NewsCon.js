@@ -115,7 +115,8 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
         let url = `https://newsapi.org/v2/everything?q=${searchState.searchValue}&apiKey=${keyCode}&page=${page2}&pageSize=${pageSize}`;
         const res = await fetch(url);
         const result = await res.json();
-        setdata(result);
+        setdata(result)
+        console.log(page2)
       } else {
         // for all category
         let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
@@ -153,8 +154,6 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
         setprevBtnDnone(true);
       }
     } catch (error) {
-      setnextBtnDnone(true);
-      setprevBtnDnone(true);
       console.warn(error);
     }
   }
@@ -162,17 +161,15 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
   // ======== ==================================================
   useEffect(() => {
     // for catagory
-
     setpage(1);
     searchState.setsearchValue(null);
     dataLoad();
-  }, [category]);
+  }, [category, page]);
 
   useEffect(() => {
     /// for search
-    setpage2(1);
     dataLoad();
-  }, [searchState.searchDepandency]);
+  }, [searchState.searchDepandency, page2]);
 
   /**
     ==================change page function =====>
@@ -180,23 +177,21 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
   const changeNext = () => {
     if (searchState.searchValue) {
       setpage2(page2 + 1);
-      setspinerIsBlock(true);
-      dataLoad();
+      // dataLoad();
     } else {
       setpage(page + 1);
-      setspinerIsBlock(true);
-      dataLoad();
+      // dataLoad();
     }
   };
   const changePrev = () => {
     if (searchState.searchValue) {
       setpage2(page2 - 1);
       setspinerIsBlock(true);
-      dataLoad();
+      // dataLoad();
     } else {
       setpage(page - 1);
       setspinerIsBlock(true);
-      dataLoad();
+      // dataLoad();
     }
   };
   // ==============================================
