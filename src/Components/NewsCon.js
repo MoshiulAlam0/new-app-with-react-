@@ -6,14 +6,15 @@ import Loder from "./Loder";
 import { valueContext } from "../Context/SearchValue";
 
 const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
-  const searchState = useContext(valueContext);  // context 
+  const searchState = useContext(valueContext); // context
 
   const [prevBtnDnone, setprevBtnDnone] = useState(true); //prev btn display hide or visiblae
   const [nextBtnDnone, setnextBtnDnone] = useState(true); //next btn display hide or visiblae
   const [page, setpage] = useState(1); /// page counter
-  
+  const [page2, setpage2] = useState(1); /// page2 counter for search page .
+
   const [spinerIsBlock, setspinerIsBlock] = useState(true); //spiner display hide or visiblae
-  const [netErrorDisplay, setnetErrorDisplay] = useState('none'); // show net connection erooor massage 
+  const [netErrorDisplay, setnetErrorDisplay] = useState("none"); // show net connection erooor massage
 
   /**store data on the state : */
   // const [data, setdata] = useState({
@@ -95,37 +96,51 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
 
   /**====================for api data function " ===>*/
   async function dataLoad() {
+    setdata({
+      status: "ok",
+      totalResults: 0,
+      articles: [],
+    });
     try {
-      setdata({
-        status: "ok",
-        totalResults: 0,
-        articles: [],
-      });
-      setnetErrorDisplay('none')
-      setnextBtnDnone(true);  /// hide next btn 
+      setnetErrorDisplay("none");
+      setprevBtnDnone(true); // hide prev btn
+      setnextBtnDnone(true); /// hide next btn
       setspinerIsBlock(true); /// show spiner
       setTimeout(() => {
-        setnetErrorDisplay('block')
-        setspinerIsBlock(false)
-      }, 10000);
+        setnetErrorDisplay("block");
+        setspinerIsBlock(false);
+      }, 100000);
 
-      if (searchState.searchValue) {       /// for search 
-        console.log(searchState.searchValue)
-        let url = `https://newsapi.org/v2/everything?q=${searchState.searchValue}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
+      if (searchState.searchValue) {  /// for search
+        let url = `https://newsapi.org/v2/everything?q=${searchState.searchValue}&apiKey=${keyCode}&page=${page2}&pageSize=${pageSize}`;
         const res = await fetch(url);
         const result = await res.json();
         setdata(result);
-        searchState.setsearchValue(null)
-      } else {                            // for all category 
+      } else {
+        // for all category
         let url = `https://newsapi.org/v2/${all}?country=${country}&category=${category}&apiKey=${keyCode}&page=${page}&pageSize=${pageSize}`;
         let res = await fetch(url);
         let data = await res.json();
         setdata(data);
       }
       setnextBtnDnone(false); // show next btn
-      setnetErrorDisplay('none')    // hide net error massage .
+      setnetErrorDisplay("none"); // hide net error massage .
       setspinerIsBlock(false); /// hide spiner
-      
+
+      //================= show or hide page change btn  for search ================
+      if (searchState.searchValue) {
+        if (pageSize === data.articles.length) {
+          setnextBtnDnone(false);
+        } else {
+          setnextBtnDnone(true);
+        }
+        if (page2 > 1) {
+          setprevBtnDnone(false);
+        } else {
+          setprevBtnDnone(true);
+        }
+        return;
+      }
       //================= show or hide page change btn ================
       if (pageSize === data.articles.length) {
         setnextBtnDnone(false);
@@ -138,36 +153,58 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
         setprevBtnDnone(true);
       }
     } catch (error) {
+      setnextBtnDnone(true);
+      setprevBtnDnone(true);
       console.warn(error);
     }
   }
 
   // ======== ==================================================
   useEffect(() => {
-    setpage(1)
+    // for catagory
+
+    setpage(1);
+    searchState.setsearchValue(null);
     dataLoad();
-  }, [category, searchState.searchDepandency]);
+  }, [category]);
+
+  useEffect(() => {
+    /// for search
+    setpage2(1);
+    dataLoad();
+  }, [searchState.searchDepandency]);
 
   /**
     ==================change page function =====>
   */
   const changeNext = () => {
-    setdata({ status: "ok", totalResults: 59, articles: [] });
-    setpage(page + 1);
-    setspinerIsBlock(true);
-    dataLoad();
+    if (searchState.searchValue) {
+      setpage2(page2 + 1);
+      setspinerIsBlock(true);
+      dataLoad();
+    } else {
+      setpage(page + 1);
+      setspinerIsBlock(true);
+      dataLoad();
+    }
   };
   const changePrev = () => {
-    setdata({ status: "ok", totalResults: 59, articles: [] });
-    setpage(page - 1);
-    setspinerIsBlock(true);
-    dataLoad();
+    if (searchState.searchValue) {
+      setpage2(page2 - 1);
+      setspinerIsBlock(true);
+      dataLoad();
+    } else {
+      setpage(page - 1);
+      setspinerIsBlock(true);
+      dataLoad();
+    }
   };
   // ==============================================
   return (
     <div className="w-full mt-[4px] px-[6vmin]">
       <h1 className="text-center py-4 text-[2rem] capitalize font-extralight">
-        Top head line about the {category === 'politics'? 'new news' : category}
+        Top head line about the{" "}
+        {category === "politics" ? "new news" : category}
       </h1>
       <div className="main flex flex-wrap gap-[2vmin] items-center justify-center">
         {data.status === "ok" ? (
@@ -186,7 +223,9 @@ const NewsCon = ({ keyCode, all, country, category, pageSize }) => {
               );
             })
           ) : (
-            <h1 style={{display: netErrorDisplay}} className="text-center">net conection is slow...! <br /> hold on a few minits......</h1>
+            <h1 style={{ display: netErrorDisplay }} className="text-center">
+              net conection is slow...! <br /> hold on a few minits......
+            </h1>
           )
         ) : (
           <h1>No SIgnal</h1>
