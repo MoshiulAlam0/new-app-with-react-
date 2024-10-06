@@ -254,3 +254,8 @@ NewsCon.defaultProps = {
   pageSize: 9,
 };
 export default NewsCon;
+
+
+
+
+// news container page 
